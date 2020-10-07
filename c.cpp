@@ -32,82 +32,11 @@ using namespace std;
 int inf = 1e18;
 
 
-#define ordered_set                            \
-    tree<int, null_type, less<int>, rb_tree_tag, \
-         tree_order_statistics_node_update>
-
-//vvi a(n, vi(10));
-
-int power(int a,int b, int m);
-int gcd(int a,int b);
-int lcm(int a,int b);
-vi prime_factors(int n);
-vi SieveOfEratosthenes(int n);
-
 
 signed main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-}
-
-//utility function
-
-int power(int a,int b,int m)
-{
-    int ans = 1;
-    while(b > 0)
-    {
-        if(b&1){ans *= a;ans %= m;}
-        a *= a;
-        a %= m;
-        b >>= 1;
-    }
-    return ans;
-}
-int gcd(int a, int b) 
-{ 
-    if (b == 0) 
-        return a; 
-    return gcd(b, a % b);  
-      
-}
-int lcm(int a,int b)
-{
-    int g = gcd(a,b);
-    return(a*b/g);
-}
-
-vi prime_factors(int n)
-{
-    vi a;
-    while (n % 2 == 0)  { a.pb(2); n = n/2;}  
-    for (int i = 3; i <= sqrt(n); i = i + 2)  
-    {while (n % i == 0) {a.pb(i); n = n/i;}}  
-    if (n > 2)  a.pb(n); 
-    return a;
-}
-
-vi SieveOfEratosthenes(int n)
-{
-    vi a;
-    bool prime[n+1];
-    memset(prime, true, sizeof(prime));
-
-    for (int p=2; p*p<=n; p++)
-    {
-        if (prime[p] == true)
-        {
-            for (int i=p*p; i<=n; i += p)
-                prime[i] = false;
-        }
-    }
-
-    for (int p=2; p<=n; p++)
-       if (prime[p])
-           a.pb(p);
-
-    return a;
 }
 
