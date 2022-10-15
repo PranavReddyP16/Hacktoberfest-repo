@@ -1,0 +1,2 @@
+class NotAnObject(object):
+    pass
